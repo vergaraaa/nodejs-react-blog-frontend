@@ -112,9 +112,11 @@ body {
   padding-right: 25px;
 }
 
+.button,
 button,
 input[type="submit"],
 input[type="button"] {
+  text-decoration: none;
   width: 100px;
   background: #0b70e1;
   color: white;
@@ -201,4 +203,24 @@ input[type="button"] {
   .article-item {
       width: 80%;
   }
+}
+
+.jumbo {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 6px #ddd;
+  margin: 25px auto;
+  width: 85%;
+  padding: 55px;
+  padding-bottom: 75px;
+}
+
+.jumbo h1 {
+  font-size: 35px;
+  color: #444;
+}
+
+.jumbo p {
+  display: block;
+  margin-bottom: 40px;
 }
