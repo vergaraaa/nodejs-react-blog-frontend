@@ -1,6 +1,8 @@
 import React from 'react'
 
 import { useState, useEffect } from 'react'
+import { Global } from '../../helpers/Global';
+import { Request } from '../../helpers/Request';
 
 export const Articles = () => {
 
@@ -11,12 +13,8 @@ export const Articles = () => {
   }, [])
 
   const getArticles = async () => {
-    const url = "http://localhost:4000/api/articles";
-    const request = await fetch(url, {
-      method: "GET",
-    });
-
-    const data = await request.json();
+    const url = Global.url + "/articles";
+    const { data, loading } = await Request(url, "GET");
 
     setArticles(data);
   }
