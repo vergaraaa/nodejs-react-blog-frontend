@@ -7,6 +7,7 @@ import { Request } from '../../helpers/Request';
 export const Articles = () => {
 
   const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getArticles();
@@ -14,14 +15,16 @@ export const Articles = () => {
 
   const getArticles = async () => {
     const url = Global.url + "/articles";
-    const { data, loading } = await Request(url, "GET");
+    const { data } = await Request(url, "GET");
 
     setArticles(data);
+    setLoading(false);
   }
 
   return (
     <>
-      {
+      {loading
+        ? "Loading..." :
         articles.length >= 1
           ? (articles.map((article) => {
             return (
