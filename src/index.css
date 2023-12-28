@@ -87,7 +87,8 @@ body {
 }
 
 .nav a:hover {
-  transform: scale(1.1);
+  transform: scale(1.1)
+  width: 30;
 }
 
 /* MAIN CONTENT STYLES */
@@ -142,7 +143,8 @@ input[type="button"] {
   padding: 15px;
   border-radius: 3px;
   margin-top: 15px;
-  text-transform: capitalize;
+  text-transform: capitalize
+  width: 30;
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
@@ -243,4 +245,43 @@ input[type="button"] {
 .jumbo p {
   display: block;
   margin-bottom: 40px;
+}
+
+input[type="text"],
+input[type="file"],
+textarea {
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 5px;
+  background: #f6f7f9;
+  color: #454545;
+  width: 80%;
+  opacity: 4;
+  outline: 0;
+  border-color: transparent;
+}
+
+.form-group
+input[type="text"],
+input[type="file"],
+textarea {
+  border: 1px solid #ddd;
+  outline: 0;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.form-group label {
+  display: block;
+  text-align: left;
+  color: #444;
+  margin-bottom: 5px;
 }
