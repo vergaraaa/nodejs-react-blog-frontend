@@ -15,7 +15,22 @@ export const CreateArticle = () => {
     const { data } = await Request(Global.url + "/articles/create", "POST", form);
 
     if (data.status === "success") {
-      setResult("saved");
+
+      const fileInput = document.querySelector("#file");
+
+      const formData = new FormData();
+
+      formData.append("file", fileInput.files[0]);
+
+      const image = await Request(Global.url + "/articles/upload-image/" + data.article._id, "POST", formData, true);
+
+      if (image.data.status == "success") {
+        setResult("saved");
+      }
+      else {
+        setResult("error");
+      }
+
     }
     else {
       setResult("error");

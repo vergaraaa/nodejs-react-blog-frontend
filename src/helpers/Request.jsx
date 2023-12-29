@@ -1,4 +1,4 @@
-export const Request = async (url, method, body = "") => {
+export const Request = async (url, method, dataToSave = "", files = false) => {
     let loading = true;
 
     let options = { method: "GET" };
@@ -7,13 +7,23 @@ export const Request = async (url, method, body = "") => {
         options = { method: method }
     }
     if (method == "POST" || method == "PUT") {
-        options = {
-            method: method,
-            body: JSON.stringify(body),
-            headers: {
-                "Content-Type": "application/json",
-            },
+
+        if (files) {
+            options = {
+                method: method,
+                body: dataToSave,
+            }
         }
+        else {
+            options = {
+                method: method,
+                body: JSON.stringify(dataToSave),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        }
+
     }
     const request = await fetch(url, options);
     const data = await request.json();
