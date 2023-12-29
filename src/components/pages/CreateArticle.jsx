@@ -15,7 +15,6 @@ export const CreateArticle = () => {
     const { data } = await Request(Global.url + "/articles/create", "POST", form);
 
     if (data.status === "success") {
-
       const fileInput = document.querySelector("#file");
 
       const formData = new FormData();

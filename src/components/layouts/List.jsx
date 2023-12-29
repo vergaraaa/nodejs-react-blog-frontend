@@ -1,4 +1,5 @@
 import React from 'react'
+import { Global } from '../../helpers/Global'
 
 export const List = ({ articles, setArticles }) => {
     return (
@@ -8,7 +9,14 @@ export const List = ({ articles, setArticles }) => {
                     return (
                         <article key={article._id} className='article-item'>
                             <div className='mask'>
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png" />
+                                {
+                                    article.image === "default.png"
+                                    && <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png" />
+                                }
+                                {
+                                    article.image !== "default.png"
+                                    && <img src={Global.url + "/articles/image/" + article.image} />
+                                }
                             </div>
 
                             <div className="data">
