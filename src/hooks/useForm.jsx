@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-import React from 'react'
-
 export const useForm = (initial = {}) => {
 
     const [form, setForm] = useState(initial);
@@ -18,7 +16,7 @@ export const useForm = (initial = {}) => {
         return completeObject;
     }
 
-    const sent = (e) => {
+    const submit = (e) => {
         e.preventDefault();
 
         let form = serializeForm(e.target);
@@ -40,7 +38,7 @@ export const useForm = (initial = {}) => {
     return {
         form,
         serializeForm,
-        sent,
+        submit,
         change,
     }
 }
