@@ -14,8 +14,9 @@ export const CreateArticle = () => {
 
     const { data } = await Request(Global.url + "/articles/create", "POST", form);
 
-    if (data.status === "success") {
-      const fileInput = document.querySelector("#file");
+    const fileInput = document.querySelector("#file");
+
+    if (data.status === "success" && fileInput.files[0]) {
 
       const formData = new FormData();
 
@@ -29,10 +30,6 @@ export const CreateArticle = () => {
       else {
         setResult("error");
       }
-
-    }
-    else {
-      setResult("error");
     }
   }
 
