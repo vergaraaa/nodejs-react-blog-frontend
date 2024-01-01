@@ -1,7 +1,20 @@
 import React from 'react'
+
 import { Global } from '../../helpers/Global'
+import { Request } from '../../helpers/Request'
 
 export const List = ({ articles, setArticles }) => {
+
+    const onDelete = async (id) => {
+        let { data } = await Request(Global.url + "/articles/one/" + id, "DELETE");
+
+        if (data.status === "success") {
+            let newArticles = articles.filter((article) => article._id !== id);
+
+            setArticles(newArticles);
+        }
+    }
+
     return (
         <div>
             {
@@ -24,7 +37,7 @@ export const List = ({ articles, setArticles }) => {
                                 <p className="description">{article.content}</p>
 
                                 <button className="edit">Edit</button>
-                                <button className="delete">Delete</button>
+                                <button className="delete" onClick={() => onDelete(article._id)}>Delete</button>
                             </div>
                         </article>
                     )
