@@ -7,6 +7,7 @@ import { Header } from '../components/layouts/Header'
 import { Nav } from '../components/layouts/Nav'
 import { Sidebar } from '../components/layouts/Sidebar'
 import { Footer } from '../components/layouts/Footer'
+import { Search } from "../components/pages/Search";
 
 export const Router = () => {
     return (
@@ -18,14 +19,20 @@ export const Router = () => {
             {/* ROUTES */}
             <section id="content" className="content">
                 <Routes>
-                    <Route path="/" element={<Home />} /> 
-                    <Route path="/home" element={<Home />} /> 
-                    <Route path="/articles" element={<Articles />} /> 
-                    <Route path="/create-articles" element={<CreateArticle />} /> 
+                    <Route path="/" element={<Home />} />
+                    <Route path="/home" element={<Home />} />
+                    <Route path="/articles" element={<Articles />} />
+                    <Route path="/create-articles" element={<CreateArticle />} />
+                    <Route path="/search/:query" element={<Search />} />
+                    <Route path="*" element={
+                        <div className="jumbo">
+                            <h1>Error 404 Page not Found</h1>
+                        </div>
+                    } />
                 </Routes>
             </section>
 
-            <Sidebar /> 
+            <Sidebar />
             <Footer />
         </BrowserRouter>
     );
