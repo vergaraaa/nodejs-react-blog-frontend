@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Global } from '../../helpers/Global'
 import { Request } from '../../helpers/Request'
+import { Link } from 'react-router-dom'
 
 export const List = ({ articles, setArticles }) => {
 
@@ -33,7 +34,9 @@ export const List = ({ articles, setArticles }) => {
                             </div>
 
                             <div className="data">
-                                <h3 className="title">{article.title}</h3>
+                                <Link to={"/article/" + article._id}>
+                                    <h3 className="title">{article.title}</h3>
+                                </Link>
                                 <p className="description">{article.content}</p>
 
                                 <button className="edit">Edit</button>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 import { Home } from "../components/pages/Home";
+import { Article } from "../components/pages/Article";
 import { Articles } from "../components/pages/Articles";
 import { CreateArticle } from "../components/pages/CreateArticle";
 import { Header } from '../components/layouts/Header'
@@ -22,6 +23,7 @@ export const Router = () => {
                     <Route path="/" element={<Home />} />
                     <Route path="/home" element={<Home />} />
                     <Route path="/articles" element={<Articles />} />
+                    <Route path="/article/:id" element={<Article />} />
                     <Route path="/create-articles" element={<CreateArticle />} />
                     <Route path="/search/:query" element={<Search />} />
                     <Route path="*" element={
