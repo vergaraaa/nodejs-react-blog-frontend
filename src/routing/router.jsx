@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 import { Home } from "../components/pages/Home";
 import { Article } from "../components/pages/Article";
+import { EditArticle } from "../components/pages/EditArticle";
 import { Articles } from "../components/pages/Articles";
 import { CreateArticle } from "../components/pages/CreateArticle";
 import { Header } from '../components/layouts/Header'
@@ -26,6 +27,7 @@ export const Router = () => {
                     <Route path="/article/:id" element={<Article />} />
                     <Route path="/create-articles" element={<CreateArticle />} />
                     <Route path="/search/:query" element={<Search />} />
+                    <Route path="/edit/:id" element={<EditArticle />} />
                     <Route path="*" element={
                         <div className="jumbo">
                             <h1>Error 404 Page not Found</h1>

@@ -39,7 +39,9 @@ export const List = ({ articles, setArticles }) => {
                                 </Link>
                                 <p className="description">{article.content}</p>
 
-                                <button className="edit">Edit</button>
+                                <Link to={"/edit/" + article._id}>
+                                    <button className='edit'>Edit</button>
+                                </Link>
                                 <button className="delete" onClick={() => onDelete(article._id)}>Delete</button>
                             </div>
                         </article>
